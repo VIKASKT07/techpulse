@@ -1,0 +1,230 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 10;
+    padding: 10;
+    background-color: #000000;
+}
+.hero {
+    background: #c21b1b ;
+    background-size: cover;
+    color: rgb(56, 245, 18);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.hero p {
+    font-size: 1.2rem;
+}
+
+.hero .btn {
+    font-size: 1.1rem;
+    padding: 24px 48px;
+    border-radius: 30px;
+}
+#news-feed {
+    background-color: #d1d1d1;
+}
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.card img {
+    border-radius: 10px 10px 0 0;
+}
+.card-body {
+    padding: 100px;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #000000;
+}
+.card .btn {
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+    color: #ddd;
+}
+
+.container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.news-input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+}
+
+h2 {
+    font-family: 'Arial Rounded MT Bold';  /* Apply the specific font */
+    font-size: 3rem;/*ts the font size */
+    color: #333;  /* Sets the text color */
+    font-weight: bold;  /* Ensures the text is bold */
+    margin-bottom: 20px;  /* Adds a bottom margin for spacing */
+    text-align: center;  /* Centers the text */
+}
+
+/* Cards Container */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 cards per row */
+    gap: 10px;
+    justify-items: center;
+    margin-top: 20px;
+    padding: 0 0px; /* Add some margin from sides */
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    max-width: 300px; /* Max width of each card */
+}
+
+.card-header img {
+    width: 100%;
+    height: auto;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-content h3 {
+    font-size: 18px;
+    color: #ffffff;
+    margin: 0 0 10px;
+}
+
+.card-content h6 {
+    font-size: 14px;
+    color: #888;
+    margin: 0 0 10px;
+}
+
+.card-content p {
+    font-size: 16px;
+    color: #555;
+    margin: 0;
+}
+
+
+
+/* Truncate description by default */
+.news-desc {
+    font-size: 16px;
+    color: #555;
+    margin: 0 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Expand description on "Read More" click */
+.news-desc.expanded {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+}
+
+/* Styling for Read More button */
+.read-more {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.read-more:hover {
+    background-color: #0056b3;
+}
+
+/* No Content Styling */
+.cards-container p {
+    font-size: 18px;
+    text-align: center;
+    color: #666;
+    margin: 20px auto;
+}
+/* Dropdown styling */
+.navbar .dropdown-menu {
+    background-color: #01919e;
+    color: white;
+}
+
+.navbar .dropdown-item {
+    color: white;
+}
+
+.navbar .dropdown-item:hover {
+    background-color: #71e5ed;
+    color: black;
+}
+
+/* News card styling */
+.card {
+    margin: 15px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.card h3 {
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+.card p {
+    font-size: 1em;
+    color: #555;
+}
+
+    .nav-item a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .fas.fa-comment-dots {
+        font-size: 30px; /* Adjust the icon size */
+        color: #007bff;  /* Change the color of the icon */
+        transition: color 0.3s;
+    }
+
+    .fas.fa-comment-dots:hover {
+        color: #0056b3;  /* Hover effect for color */
+    }
+
+    .welcome-message {
+        text-align: center;
+        background-color: #e0f7fa; /* Light blue background */
+        color: #00796b; /* Dark teal text */
+        padding: 10px 0;
+        margin: 0;
+    }
+    
+    .welcome-message h2 {
+        font-size: 24px;
+        margin: 0;
+        font-weight: bold;
+    }

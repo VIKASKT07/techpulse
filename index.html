@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Pulse</title>
+    <!-- Bootstrap CSS (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.css" rel="stylesheet">
+
+
+
+    <!-- i18next CDN -->
+    <script src="https://unpkg.com/i18next@21.6.0/i18next.min.js"></script>
+</head>
+<body style="background: linear-gradient(to top, #0e0e0e, #0e0c0c);">
+    <!-- Navbar -->
+    <!-- Navbar -->
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #173927;">
+    <div class="container-fluid">
+        <!-- Logo -->
+        <img src="{{ url_for('static', filename='image/tech pulse logo.png') }}" 
+             onclick="alert('Welcome to techpulse,Now you can explore tech news')" 
+             alt="Tech Pulse Logo" 
+             id="logo" 
+             style="width: 80px; height: 80px; margin-left:0px;">
+        <a style="font-size: 35px; color: rgb(255, 255, 255); font-family: 'Arial Rounded MT Bold'">Tech Pulse</a>
+        
+        <!-- Navbar Toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active fs-5 mx-3" href="{{ url_for('home') }}">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link active fs-5 mx-3" href="{{ url_for('contact') }}">
+                        <i class="fas fa-envelope"></i> Contact
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active fs-5 mx-3" href="https://techpulseai.streamlit.app/" target="_blank">
+                        <i class="fas fa-robot"></i> AI Assistant
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active fs-5 mx-3" href="{{ url_for('feedback') }}">
+                        <i class="fas fa-comment-dots"></i> Feed Back
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active fs-5 mx-3" href="/">
+                        <i class="fas fa-sign-out-alt"></i> Log Out
+                    </a>
+                </li>
+
+                
+                
+                
+            </ul>
+        </div>
+        
+    </div>
+   
+   
+</nav>
+
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Include Font Awesome -->
+
+<div id="welcome-msg"></div>
+
+
+<div class="welcome-message" style="background: linear-gradient(to right, #111111, #000000); color: white; padding: 20px; border-radius: 10px;">
+    <h2>Welcome to Tech Pulse {{ username }}</h2>
+</div>
+
+
+
+    <!-- Hero Section -->
+    <header class="hero text-center py-5"  style="background: linear-gradient(to right, #002fff, #ff0000); background-size: cover; color: #ffffff; border-radius: 2% / 2%; padding: 20px;">
+        <div class="container">
+            <h1 class="display-4" id="hero-title"></h1>
+            <p class="lead" id="hero-desc"></p>
+            <a href="#news-feed" class="btn btn-lg" style="background-color: #ffffff; color: rgb(1, 1, 1); font-size: 30px; padding: 20px 30px;" id="explore-btn"></a>
+        </div>
+    </header>
+    
+    
+    <!-- News Feed Section -->
+    <section id="news-feed" class="container my-5" style="background-color:#2d2d2d ;border-radius: 4% / 15% ">
+        <h2 class="text-center mb-4" id="news-feed-title" style="color: #ffffff; "></h2>
+        <div class="row"></div>
+    </section>0
+
+    <main>
+        <div class="cards-container container flex" id="cards-container">
+            <!-- News cards will be dynamically inserted here -->
+        </div>
+    </main>
+
+    <template id="template-news-card">
+        <div class="card" style="background: linear-gradient(to right, #1d1d1d, #2a2a2a);">
+            <div class="card-header">
+                <a href="#" id="news-link" target="_blank">
+                    <img src="https://via.placeholder.com/400x200" alt="news-image" id="news-img">
+                </a>
+            </div>
+            <div class="card-content">
+                <h3 id="news-title">Tech News app</h3>
+                <h6 class="news-source" id="news-source"></h6>
+                <p class="news-desc" id="news-desc"></p>
+            </div>
+        </div>
+    </template>
+
+    
+
+    <!-- Bootstrap JS and dependencies (CDN) -->
+    <script src="{{ url_for('static', filename='type.js') }}"></script>
+
+
+    <script>
+
+    
+        // Initialize i18next with translation resources
+        i18next.init({
+            lng: 'en', // Default language
+            resources: {
+                en: {
+                    translation: {
+                        "hero-title": "Stay Updated with the Latest Tech News",
+                        "hero-desc": "Get the latest updates on technology, gadgets, and innovations from around the world.",
+                        "explore-btn": "Explore News",
+                        "news-feed-title": "Latest Tech News",
+                        "home-link": "Home",
+                        "categories-link": "Categories",
+                        "contact-link": "Contact",
+                        "profile-link": "Profile"
+                    }
+                },
+                
+                
+                
+            }
+        }, (err, t) => {
+            // Update all elements with translations
+            document.getElementById('hero-title').innerText = i18next.t('hero-title');
+            document.getElementById('hero-desc').innerText = i18next.t('hero-desc');
+            document.getElementById('explore-btn').innerText = i18next.t('explore-btn');
+            document.getElementById('news-feed-title').innerText = i18next.t('news-feed-title');
+            document.getElementById('home-link').innerText = i18next.t('home-link');
+            document.getElementById('categories-link').innerText = i18next.t('categories-link');
+            document.getElementById('contact-link').innerText = i18next.t('contact-link');
+            document.getElementById('profile-link').innerText = i18next.t('profile-link');
+        });
+
+        // Change language on selection
+        document.getElementById('languageSelect').addEventListener('change', (e) => {
+            i18next.changeLanguage(e.target.value, (err, t) => {
+                document.getElementById('hero-title').innerText = t('hero-title');
+                document.getElementById('hero-desc').innerText = t('hero-desc');
+                document.getElementById('explore-btn').innerText = t('explore-btn');
+                document.getElementById('news-feed-title').innerText = t('news-feed-title');
+                document.getElementById('home-link').innerText = t('home-link');
+                document.getElementById('categories-link').innerText = t('categories-link');
+                document.getElementById('contact-link').innerText = t('contact-link');
+                document.getElementById('profile-link').innerText = t('profile-link');
+            });
+        });
+
+        // Mock data (replace this with an actual API call or database query)
+const newsData = [
+    { id: 1, category: 'ai', title: 'AI Advancements', description: 'Latest in AI', source: 'TechWorld', image: 'path/to/image1.jpg', link: '#' },
+    { id: 2, category: 'robotics', title: 'Robotics in 2024', description: 'New trends in robotics', source: 'RoboTech', image: 'path/to/image2.jpg', link: '#' },
+    { id: 3, category: 'invention', title: 'New Invention', description: 'Innovative gadget', source: 'InventDaily', image: 'path/to/image3.jpg', link: '#' },
+    { id: 4, category: 'development', title: 'Tech Development', description: 'Breakthrough in tech', source: 'DevUpdates', image: 'path/to/image4.jpg', link: '#' },
+    { id: 5, category: 'product-launches', title: 'Product Launch', description: 'New product release', source: 'LaunchZone', image: 'path/to/image5.jpg', link: '#' }
+];
+
+// Function to render filtered news
+function renderNews(category) {
+    const container = document.getElementById('cards-container');
+    container.innerHTML = ''; // Clear existing news
+    const filteredNews = category ? newsData.filter(news => news.category === category) : newsData;
+
+    filteredNews.forEach(news => {
+        const template = document.querySelector('#template-news-card').content.cloneNode(true);
+        template.querySelector('#news-link').href = news.link;
+        template.querySelector('#news-img').src = news.image;
+        template.querySelector('#news-title').textContent = news.title;
+        template.querySelector('#news-source').textContent = news.source;
+        template.querySelector('#news-desc').textContent = news.description;
+        container.appendChild(template);
+    });
+}
+
+// Event listener for category selection
+document.querySelectorAll('.category-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+        e.preventDefault();
+        const category = e.target.dataset.category; // Get category from data attribute
+        renderNews(category); // Render filtered news
+    });
+});
+
+
+
+// Initial render of all news
+renderNews();
+
+// Fetch username from the server-side session (passed via Flask)
+window.onload = function() {
+  fetch('/get-username')  // Fetch the username from Flask
+  .then(response => response.json())
+  .then(data => {
+      const welcomeMessage = document.querySelector('.welcome-message h2');
+      if (data.username) {
+          // Update the welcome message with the username
+          welcomeMessage.textContent = `Welcome to Tech Pulse, ${data.username}`;
+      } else {
+          // Show a generic message for guest users
+          welcomeMessage.textContent = `Welcome to Tech Pulse, Guest!`;
+      }
+  })
+  .catch(error => {
+      console.error('Error fetching username:', error);
+  });
+};
+
+
+// After successful registration or login
+fetch('/get-username')  // Fetch the updated username from Flask
+    .then(response => response.json())
+    .then(data => {
+        if (data.username) {
+            // Update the username in the welcome message
+            document.querySelector('.welcome-message h2').textContent = `Welcome to Tech Pulse, ${data.username}`;
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching username:', error);
+    });
+    fetch('/signup', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, email, password })
+  })
+  .then(response => response.json())
+  .then(result => {
+      if (result.message) {
+          // Redirect to the main page after successful registration
+          window.location.href = result.redirect_url;
+      } else {
+          // Show error message
+          alert(result.error);
+      }
+  })
+  .catch(error => {
+      console.error('Error during signup:', error);
+  });
+  
+
+    </script>
+</body>
+</html>

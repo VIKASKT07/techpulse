@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #434343;
+            color: #000000;
+        }
+
+        header {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 1rem 0;
+            text-align: center;
+            position: relative; /* Added to position the button inside */
+        }
+
+        /* Button styles */
+        .back-home-btn {
+            position: absolute;
+            top: 40px; /* Adjust as needed */
+            left: 20px; /* Adjust as needed */
+            padding: 10px 15px;
+            background-color: #007bff00;
+            color: rgb(255, 252, 252);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1.1rem; /* Ensure it doesn't look like a link */
+        }
+
+        .back-home-btn:hover {
+            background-color: #017ffe;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #757575;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .contact-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around; /* Distribute cards horizontally */
+        }
+
+        .contact-card {
+            width: calc(30% - 20px); /* Three cards across with spacing */
+            background-color: #ababab;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .contact-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .contact-card h2 {
+            margin-bottom: 5px;
+        }
+
+        .social-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .social-links li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: #007bff36;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background-color: #ddd;
+        }
+
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+            .contact-card {
+                width: calc(50% - 20px); /* Two cards across */
+            }
+        }
+
+        @media (max-width: 500px) {
+            .contact-card {
+                width: calc(100% - 20px); /* One card across */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('index') }}" class="back-home-btn">BACK TO HOME</a>
+
+        <h1 style="font-size: 40px;">Team Members</h1>
+
+    </header>
+
+    <main>
+        <div class="contact-cards">
+            <div class="contact-card">
+                <h2>Vikas K T</h2>
+                <p>Title: Project Head</p>
+                <p>Email: <a href="mailto:vikasktcs.23@rvce.edu.in">vikasktcs.23@rvce.edu.in</a></p>
+                <ul class="social-links">
+                    <li><a href="https://www.linkedin.com/in/vikas-kt-4b48462b3/" target="_blank" style="color: #000000;">LinkedIn</a></li>
+                </ul>
+            </div>
+
+            <div class="contact-card">
+                <h2>Vikas V M</h2>
+                <p>Title: Backend Developer</p>
+                <p>Email: <a href="mailto:vikasvijaym.cs23@rvce.edu.in">vikasvijaym.cs23@rvce.edu.in</a></p>
+                <ul class="social-links">
+                    <li><a href="https://www.linkedin.com/in/vikas-muddannanavar-360205294?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"  style="color: #000000;">LinkedIn</a></li>
+                </ul>
+            </div>
+
+            <div class="contact-card">
+                <h2>Dhanush Moolemane</h2>
+                <p>Title: AI Engineer</p>
+                <p>Email: <a href="mailto:dhanushrm.ai23@rvce.edu.in">dhanushrm.ai23@rvce.edu.in</a></p>
+                <ul class="social-links">
+                    <li><a href="https://www.linkedin.com/in/dhanush-moolemane-b690562b0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" style="color: #000000;">LinkedIn</a></li>
+                </ul>
+            </div>
+
+            <div class="contact-card">
+                <h2>Abhiraj</h2>
+                <p>Title: Frontend Developer</p>
+                <p>Email: <a href="mailto:rabhi.is23@rvce.edu.in">rabhi.is23@rvce.edu.in</a></p>
+                <ul class="social-links">
+                    <li><a href="https://www.linkedin.com/in/r-abhi-7950b5294?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" style="color: #000000;">LinkedIn</a></li>
+                </ul>
+            </div>
+
+            <div class="contact-card">
+                <h2>Rahul Rathod</h2>
+                <p>Title: Backend Developer</p>
+                <p>Email: <a href="mailto:rahullaxmanr.cs23@rvce.edu.in">rahullaxmanr.cs23@rvce.edu.in</a></p>
+                <ul class="social-links">
+                    <li><a href="https://www.linkedin.com/in/rahul-rathod-57311b282?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" style="color: #000000;">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Tech Pulse</p>
+    </footer>
+</body>
+</html>
