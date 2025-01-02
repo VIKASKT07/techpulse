@@ -1,0 +1,7 @@
+Flask==2.2.2
+Flask-SQLAlchemy==2.5.1
+Flask-Bcrypt==1.0.0
+Flask-CORS==3.1.1
+Flask-Session==0.4.0
+smtplib==3.10
+email==6.0
